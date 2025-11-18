@@ -6,7 +6,7 @@
     <title>소개 - Spring Boot 웹 애플리케이션</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
-<body>
+<body th:class="${season}">
     <div class="container">
         <header>
             <h1>Spring Boot 웹 애플리케이션</h1>
@@ -47,5 +47,6 @@
             <p>&copy; <span th:text="${#temporals.year(#temporals.createNow())}">2024</span> Spring Boot 웹 애플리케이션. All rights reserved.</p>
         </footer>
     </div>
+    <script th:src="@{/js/seasonal-animation.js}"></script>
 </body>
 </html>

@@ -6,7 +6,7 @@
     <title>홈 - Spring Boot 웹 애플리케이션</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
-<body>
+<body th:class="${season}">
     <div class="container">
         <header>
             <h1>Spring Boot 웹 애플리케이션</h1>
@@ -21,6 +21,9 @@
                 <h2 th:text="${message}">환영 메시지</h2>
                 <p class="current-time">
                     현재 시간: <span id="clock" th:text="${currentTime}">2024-01-01 00:00:00</span>
+                </p>
+                <p style="margin-top: 15px; font-size: 1.1rem; color: #667eea;">
+                    현재 계절: <strong th:text="${seasonName}">계절</strong>
                 </p>
             </div>
 
@@ -66,5 +69,6 @@
         // 1초마다 시계 업데이트
         setInterval(updateClock, 1000);
     </script>
+    <script th:src="@{/js/seasonal-animation.js}"></script>
 </body>
 </html>
