@@ -20,7 +20,7 @@
             <div class="welcome-section">
                 <h2 th:text="${message}">환영 메시지</h2>
                 <p class="current-time">
-                    현재 시간: <span th:text="${currentTime}">2024-01-01 00:00:00</span>
+                    현재 시간: <span id="clock" th:text="${currentTime}">2024-01-01 00:00:00</span>
                 </p>
             </div>
 
@@ -44,5 +44,27 @@
             <p>&copy; <span th:text="${#temporals.year(#temporals.createNow())}">2024</span> Spring Boot 웹 애플리케이션. All rights reserved.</p>
         </footer>
     </div>
+
+    <script>
+        // 실시간 시계 업데이트 함수
+        function updateClock() {
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+
+            const timeString = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+            document.getElementById('clock').textContent = timeString;
+        }
+
+        // 페이지 로드 시 즉시 실행
+        updateClock();
+
+        // 1초마다 시계 업데이트
+        setInterval(updateClock, 1000);
+    </script>
 </body>
 </html>
