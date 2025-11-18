@@ -12,6 +12,25 @@ body {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     min-height: 100vh;
     padding: 20px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* 계절별 배경 스타일 */
+body.spring {
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+}
+
+body.summer {
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+}
+
+body.autumn {
+    background: linear-gradient(135deg, #ff9a56 0%, #ff6a00 100%);
+}
+
+body.winter {
+    background: linear-gradient(135deg, #e0f7fa 0%, #80deea 100%);
 }
 
 /* Container */
@@ -183,6 +202,87 @@ footer {
     text-align: center;
     padding: 20px;
     margin-top: 40px;
+}
+
+/* 겨울 눈 내리는 애니메이션 */
+.snowflake {
+    position: fixed;
+    top: -10px;
+    color: white;
+    font-size: 1em;
+    font-family: Arial, sans-serif;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+    z-index: 9999;
+    user-select: none;
+    pointer-events: none;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0.5;
+    }
+}
+
+/* 봄 꽃잎 애니메이션 */
+.petal {
+    position: fixed;
+    top: -10px;
+    font-size: 1.2em;
+    z-index: 9999;
+    user-select: none;
+    pointer-events: none;
+    animation: fallPetal linear infinite;
+}
+
+@keyframes fallPetal {
+    0% {
+        transform: translateY(0) rotate(0deg) translateX(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(50vh) rotate(180deg) translateX(100px);
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg) translateX(0);
+        opacity: 0.3;
+    }
+}
+
+/* 가을 낙엽 애니메이션 */
+.leaf {
+    position: fixed;
+    top: -10px;
+    font-size: 1.5em;
+    z-index: 9999;
+    user-select: none;
+    pointer-events: none;
+    animation: fallLeaf linear infinite;
+}
+
+@keyframes fallLeaf {
+    0% {
+        transform: translateY(0) rotate(0deg) translateX(0);
+        opacity: 1;
+    }
+    25% {
+        transform: translateY(25vh) rotate(90deg) translateX(-50px);
+    }
+    50% {
+        transform: translateY(50vh) rotate(180deg) translateX(50px);
+    }
+    75% {
+        transform: translateY(75vh) rotate(270deg) translateX(-30px);
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg) translateX(0);
+        opacity: 0.2;
+    }
 }
 
 /* Responsive Design */
