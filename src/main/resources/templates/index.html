@@ -41,7 +41,7 @@
         </main>
 
         <footer>
-            <p>&copy; 2024 Spring Boot 웹 애플리케이션. All rights reserved.</p>
+            <p>&copy; <span th:text="${#temporals.year(#temporals.createNow())}">2024</span> Spring Boot 웹 애플리케이션. All rights reserved.</p>
         </footer>
     </div>
 </body>

@@ -10,12 +10,13 @@ import java.time.format.DateTimeFormatter;
 @Controller
 public class HomeController {
 
+    private static final DateTimeFormatter DATE_TIME_FORMATTER =
+        DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
     @GetMapping("/")
     public String home(Model model) {
         model.addAttribute("message", "안녕하세요! Spring Boot 웹 애플리케이션입니다.");
-        model.addAttribute("currentTime", LocalDateTime.now().format(
-            DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
-        ));
+        model.addAttribute("currentTime", LocalDateTime.now().format(DATE_TIME_FORMATTER));
         return "index";
     }
 
