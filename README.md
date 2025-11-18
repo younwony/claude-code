@@ -7,7 +7,7 @@ Spring Boot와 Thymeleaf를 사용한 간단한 웹 애플리케이션입니다.
 - **Java**: 17
 - **Spring Boot**: 3.2.0
 - **Template Engine**: Thymeleaf
-- **Build Tool**: Maven
+- **Build Tool**: Gradle
 - **CSS**: Custom responsive design
 
 ## 프로젝트 구조
@@ -31,7 +31,8 @@ simple-webapp/
 │   │       └── application.properties
 │   └── test/
 │       └── java/
-└── pom.xml
+├── build.gradle
+└── settings.gradle
 ```
 
 ## 실행 방법
@@ -39,7 +40,7 @@ simple-webapp/
 ### 필수 요구사항
 
 - Java 17 이상
-- Maven 3.6 이상
+- Gradle 8.5 이상 (또는 Gradle Wrapper 사용)
 
 ### 애플리케이션 실행
 
@@ -50,12 +51,18 @@ simple-webapp/
 cd simple-webapp
 ```
 
-3. Maven을 사용하여 애플리케이션 실행
+3. (선택사항) Gradle Wrapper 생성
 ```bash
-mvn spring-boot:run
+gradle wrapper --gradle-version 8.5
 ```
 
-4. 브라우저에서 접속
+4. Gradle을 사용하여 애플리케이션 실행
+```bash
+./gradlew bootRun
+# Windows의 경우: gradlew.bat bootRun
+```
+
+5. 브라우저에서 접속
 ```
 http://localhost:8080
 ```
@@ -76,13 +83,13 @@ Spring Boot DevTools가 포함되어 있어 코드 변경 시 자동으로 애�
 프로젝트를 빌드하려면:
 
 ```bash
-mvn clean package
+./gradlew clean build
 ```
 
-실행 가능한 JAR 파일이 `target/` 디렉토리에 생성됩니다.
+실행 가능한 JAR 파일이 `build/libs/` 디렉토리에 생성됩니다.
 
 ```bash
-java -jar target/simple-webapp-1.0.0.jar
+java -jar build/libs/simple-webapp-1.0.0.jar
 ```
 
 ## 라이선스
